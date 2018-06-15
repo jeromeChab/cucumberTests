@@ -1,5 +1,8 @@
 package gradle.cucumber;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -18,6 +21,12 @@ public class StepDefinitions {
     {
         driver = new FirefoxDriver();
         driver.get("http://www.google.com");
+    }
+    
+    @When("I search Go to Hell")
+    public void I_search_Go_to_Hell() {
+    	WebElement recherche = driver.findElement(By.name("q"));
+    	recherche.sendKeys("Go to Hell"+ Keys.ENTER);
     }
     
     @When("I open Chrome")
